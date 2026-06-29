@@ -1,0 +1,45 @@
+{
+  "n_total": 325842,
+  "raw_agreement": 0.9103,
+  "cohens_kappa": 0.5015,
+  "quadratic_weighted_kappa": 0.6932,
+  "confusion_matrix": {
+    "rows": "OpenAI gpt-5.4-nano",
+    "cols": "Gemini 2.5 Flash-Lite",
+    "data": [
+      [
+        282481,
+        7925,
+        233
+      ],
+      [
+        14172,
+        9043,
+        513
+      ],
+      [
+        827,
+        5568,
+        5080
+      ]
+    ]
+  },
+  "score_distribution": {
+    "openai": {
+      "0": 290639,
+      "1": 23728,
+      "2": 11475
+    },
+    "gemini": {
+      "0": 297480,
+      "1": 22536,
+      "2": 5826
+    }
+  },
+  "interpretation": {
+    "raw_agreement": "91.03% — both LLMs agree on score for 91% of cells",
+    "kappa_interpretation": "moderate (0.41-0.60)",
+    "qwk_interpretation": "substantial (0.61-0.80) — ordinal-aware metric is more appropriate for graded relevance",
+    "key_insight": "Gemini more conservative on score 2 (1.79% vs 3.52% for OpenAI). Disagreements concentrated on adjacent grades (0↔1, 1↔2)."
+  }
+}

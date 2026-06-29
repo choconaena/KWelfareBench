@@ -1,0 +1,25 @@
+{
+  "ignore_region": false,
+  "n_personas": 180,
+  "n_policies": 4937,
+  "n_eligible_per_persona": {
+    "mean": 97.0,
+    "median": 87,
+    "min": 64,
+    "max": 153
+  },
+  "n_dead_policies": 4190,
+  "pct_dead": 84.87,
+  "fail_dimension": {
+    "education": 39963,
+    "income": 88924,
+    "special": 229964,
+    "household": 158791,
+    "employment": 37866,
+    "gender": 15255,
+    "age": 90600,
+    "sido": 125024,
+    "sigungu": 6607,
+    "disability": 78208
+  }
+}

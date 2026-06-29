@@ -1,0 +1,27 @@
+{
+  "n_violated_queries": 33,
+  "n_cells_labeled": 4950,
+  "score_distribution": {
+    "orig_orthogonal": {
+      "0": 4545,
+      "1": 274,
+      "2": 131
+    },
+    "violated": {
+      "0": 4322,
+      "1": 447,
+      "2": 181
+    }
+  },
+  "score_shifts": {
+    "same": 4301,
+    "up": 435,
+    "down": 214,
+    "total": 4950
+  },
+  "gt1_gt2_correlation": {
+    "orthogonal": -0.01740745011861069,
+    "violated": -0.0347751327465241,
+    "delta": -0.01736768262791341
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "ignore_region": true,
+  "n_personas": 180,
+  "n_policies": 4937,
+  "n_eligible_per_persona": {
+    "mean": 828.3,
+    "median": 756,
+    "min": 529,
+    "max": 1270
+  },
+  "n_dead_policies": 2985,
+  "pct_dead": 60.46,
+  "fail_dimension": {
+    "education": 39963,
+    "income": 88924,
+    "special": 229964,
+    "household": 158791,
+    "employment": 37866,
+    "gender": 15255,
+    "age": 90600,
+    "disability": 78208
+  }
+}

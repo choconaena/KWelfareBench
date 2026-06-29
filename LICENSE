@@ -1,0 +1,44 @@
+Policy-Hi Repository License Summary
+
+This repository combines artifacts under multiple licenses:
+
+1. Code under `scripts/eval/`:
+   MIT License (see below).
+
+2. Structured benchmark data under `data/policies.json`, `data/regions.json`,
+   and `paper/data/personas.json`, `paper/data/ground_truth.json`,
+   `paper/data/deployment_stats.json`, `paper/data/judge_accuracy.json`,
+   `paper/data/results/`:
+   Creative Commons Attribution 4.0 International (CC BY 4.0).
+   The policy *contents* are derived from publicly published Korean government
+   welfare-policy descriptions (복지로 / 정부24 / 지자체); the 15-tag structured
+   annotations, region normalization, and persona/ground-truth files are the
+   contribution of the authors and released under CC BY 4.0 with the same
+   attribution requirement.
+
+3. Paper LaTeX sources under `paper/tex/` and `paper/refs.bib`:
+   (c) the authors. Reuse with attribution; redistribution of compiled PDFs
+   subject to the workshop venue's policies at camera-ready.
+
+================================================================================
+MIT License (applies to scripts/eval/)
+
+Copyright (c) 2026 the authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

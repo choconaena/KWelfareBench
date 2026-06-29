@@ -1,0 +1,99 @@
+% fig4_conv_loop.pdf -- 5-stage conversational closed loop (S1-S5), TikZ.
+% Compile: PATH=$HOME/.TinyTeX/bin/x86_64-linux:$PATH xelatex _make_fig4_conv_loop.tex
+% Then rename _make_fig4_conv_loop.pdf -> fig4_conv_loop.pdf
+\documentclass[border=2pt,tikz]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}    % Latin Modern (vector at every size; consistent with Fig 1/2)
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,backgrounds}
+
+% Wong 2011 colorblind-friendly palette (matches fig3/fig5/fig6).
+\definecolor{cbBlue}{HTML}{0072B2}
+\definecolor{cbOrange}{HTML}{E69F00}
+\definecolor{cbGreen}{HTML}{009E73}
+\definecolor{cbPurple}{HTML}{CC79A7}
+\definecolor{cbRed}{HTML}{D55E00}
+% Pastel fills (mix=0.80 with white, computed offline).
+\definecolor{fillBlue}{HTML}{CCE2EF}
+\definecolor{fillOrange}{HTML}{FAECCC}
+\definecolor{fillGreen}{HTML}{CCECE3}
+\definecolor{fillPurple}{HTML}{F5E4ED}
+\definecolor{fillRed}{HTML}{F7DBCC}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\sffamily,
+  >={Stealth[length=2.4mm,width=1.8mm]},
+  every node/.style={inner sep=2pt},
+  stagebox/.style 2 args={
+    rectangle, rounded corners=2pt,
+    draw=#1, line width=0.7pt,
+    fill=#2,
+    align=center,
+    text width=2.75cm, minimum height=1.75cm,
+    inner sep=4pt,
+  },
+  % Match Fig 1/2 typography: bold black titles (color cue is the box border).
+  stitle/.style={font=\sffamily\bfseries\fontsize{9.0}{11}\selectfont},
+  sbody/.style={font=\sffamily\fontsize{7.5}{9.0}\selectfont, text=black!75},
+  loopArr/.style={->, draw=black!55, line width=0.7pt},
+]
+
+% Pentagon centers at radius R, starting top (S1) clockwise.
+% Angles: 90, 18, -54, -126, 162 (degrees).
+\def\R{3.50}
+% Compute positions (LaTeX-side polar coords).
+\coordinate (C1) at ({\R*cos(90)},  {\R*sin(90)});       % S1 top
+\coordinate (C2) at ({\R*cos(18)},  {\R*sin(18)});       % S2 upper-right
+\coordinate (C3) at ({\R*cos(-54)}, {\R*sin(-54)-0.20}); % S3 lower-right
+\coordinate (C4) at ({\R*cos(-126)},{\R*sin(-126)-0.20});% S4 lower-left
+\coordinate (C5) at ({\R*cos(162)}, {\R*sin(162)});      % S5 upper-left
+
+% --- 5 stage boxes, English-only bodies ---
+\node[stagebox={cbBlue}{fillBlue}]   (S1) at (C1) {};
+\node[stagebox={cbOrange}{fillOrange}](S2) at (C2) {};
+\node[stagebox={cbGreen}{fillGreen}] (S3) at (C3) {};
+\node[stagebox={cbPurple}{fillPurple}](S4) at (C4) {};
+\node[stagebox={cbRed}{fillRed}]     (S5) at (C5) {};
+
+% Titles in BLACK bold (box border supplies the color cue, matching Fig 1/2).
+\node[stitle, anchor=north] at ($(S1.north)+(0,-0.18)$) {S1\ \ NL Input};
+\node[sbody, anchor=north, text width=2.6cm] at ($(S1.north)+(0,-0.66)$)
+  {``I struggle with my\\electricity bill''};
+
+\node[stitle, anchor=north] at ($(S2.north)+(0,-0.18)$) {S2\ \ NL $\to$ Tag};
+\node[sbody, anchor=north, text width=2.6cm] at ($(S2.north)+(0,-0.66)$)
+  {``60s'' $\to$ age 60--69\\``elderly'' $\to$ senior};
+
+\node[stitle, anchor=north] at ($(S3.north)+(0,-0.18)$) {S3\ \ Query Rewrite};
+\node[sbody, anchor=north, text width=2.6cm] at ($(S3.north)+(0,-0.66)$)
+  {[seniors 60$+$]\\$[$heating subsidy$]$};
+
+\node[stitle, anchor=north] at ($(S4.north)+(0,-0.18)$) {S4\ \ Recommendation};
+\node[sbody, anchor=north, text width=2.6cm] at ($(S4.north)+(0,-0.66)$)
+  {9-dim persona $\to$\\GT-1 $\cap$ GT-2, top-K};
+
+\node[stitle, anchor=north] at ($(S5.north)+(0,-0.18)$) {S5\ \ Follow-up Q};
+\node[sbody, anchor=north, text width=2.6cm] at ($(S5.north)+(0,-0.66)$)
+  {``Do you\\live alone?''};
+
+% Curved arrows along the pentagon (S1->S2->S3->S4->S5->S1).
+% bend right gives a clockwise gentle curve.
+\draw[loopArr, bend right=10] (S1) edge (S2);
+\draw[loopArr, bend right=10] (S2) edge (S3);
+\draw[loopArr, bend right=10] (S3) edge (S4);
+\draw[loopArr, bend right=10] (S4) edge (S5);
+\draw[loopArr, bend right=10] (S5) edge (S1);
+
+% Center label
+\node[font=\sffamily\bfseries\fontsize{9.5}{11}\selectfont, text=black!85]
+  at (0, 0.25) {5-Stage};
+\node[font=\sffamily\bfseries\fontsize{9.5}{11}\selectfont, text=black!85]
+  at (0,-0.10) {Closed Loop};
+
+% "user answer" hint on the S5 -> S1 return arc (between S5 and S1 mid-arc)
+\node[font=\sffamily\itshape\fontsize{6.6}{8}\selectfont, text=black!55]
+  at ($ (S5.north)!0.5!(S1.west) + (-0.10,0.18) $) {user answer};
+
+\end{tikzpicture}
+\end{document}

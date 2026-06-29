@@ -1,0 +1,29 @@
+{
+  "n_queries": 66,
+  "n_policies": 4937,
+  "topK": 10,
+  "setup_seconds": {
+    "BM25": 0.41,
+    "Dense": 9.93
+  },
+  "per_query_ms": {
+    "BM25": {
+      "mean_ms": 9.82,
+      "median_ms": 9.88,
+      "p95_ms": 12.73,
+      "max_ms": 13.35
+    },
+    "Dense": {
+      "mean_ms": 5.99,
+      "median_ms": 5.38,
+      "p95_ms": 5.87,
+      "max_ms": 33.19
+    },
+    "Hybrid_RRF": {
+      "mean_ms": 14.9,
+      "median_ms": 14.82,
+      "p95_ms": 17.96,
+      "max_ms": 18.45
+    }
+  }
+}

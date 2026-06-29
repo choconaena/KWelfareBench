@@ -1,0 +1,8 @@
+{
+  "n_persona_query_pairs": 11880,
+  "n_empty_target_sets": 0,
+  "pct_empty": 0.0,
+  "target_size_mean": 80.42,
+  "target_size_median": 52,
+  "target_size_max": 459
+}
