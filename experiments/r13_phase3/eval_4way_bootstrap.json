@@ -1,0 +1,213 @@
+{
+  "n_test": 36,
+  "k": 10,
+  "n_boot": 10000,
+  "heuristic": {
+    "turn0": {
+      "mean": 0.0034,
+      "ci_low": 0.0017,
+      "ci_high": 0.0052
+    },
+    "turn1": {
+      "mean": 0.0014,
+      "ci_low": 0.0002,
+      "ci_high": 0.0029
+    },
+    "turn2": {
+      "mean": 0.0087,
+      "ci_low": 0.0057,
+      "ci_high": 0.012
+    },
+    "turn3": {
+      "mean": 0.073,
+      "ci_low": 0.0656,
+      "ci_high": 0.0804
+    },
+    "turn4": {
+      "mean": 0.0714,
+      "ci_low": 0.0633,
+      "ci_high": 0.0795
+    },
+    "turn5": {
+      "mean": 0.0707,
+      "ci_low": 0.0617,
+      "ci_high": 0.0798
+    }
+  },
+  "ig": {
+    "turn0": {
+      "mean": 0.0034,
+      "ci_low": 0.0017,
+      "ci_high": 0.0052
+    },
+    "turn1": {
+      "mean": 0.0586,
+      "ci_low": 0.05,
+      "ci_high": 0.0674
+    },
+    "turn2": {
+      "mean": 0.0875,
+      "ci_low": 0.0809,
+      "ci_high": 0.0941
+    },
+    "turn3": {
+      "mean": 0.0911,
+      "ci_low": 0.0849,
+      "ci_high": 0.0977
+    },
+    "turn4": {
+      "mean": 0.0901,
+      "ci_low": 0.084,
+      "ci_high": 0.0963
+    },
+    "turn5": {
+      "mean": 0.095,
+      "ci_low": 0.0872,
+      "ci_high": 0.1024
+    }
+  },
+  "trained": {
+    "turn0": {
+      "mean": 0.0034,
+      "ci_low": 0.0017,
+      "ci_high": 0.0052
+    },
+    "turn1": {
+      "mean": 0.0598,
+      "ci_low": 0.0514,
+      "ci_high": 0.0685
+    },
+    "turn2": {
+      "mean": 0.0839,
+      "ci_low": 0.0771,
+      "ci_high": 0.0911
+    },
+    "turn3": {
+      "mean": 0.0899,
+      "ci_low": 0.0825,
+      "ci_high": 0.0974
+    },
+    "turn4": {
+      "mean": 0.0957,
+      "ci_low": 0.0888,
+      "ci_high": 0.1028
+    },
+    "turn5": {
+      "mean": 0.0953,
+      "ci_low": 0.088,
+      "ci_high": 0.1027
+    }
+  },
+  "oracle": {
+    "turn0": {
+      "mean": 0.0034,
+      "ci_low": 0.0017,
+      "ci_high": 0.0052
+    },
+    "turn1": {
+      "mean": 0.0628,
+      "ci_low": 0.0546,
+      "ci_high": 0.0713
+    },
+    "turn2": {
+      "mean": 0.0899,
+      "ci_low": 0.0829,
+      "ci_high": 0.0971
+    },
+    "turn3": {
+      "mean": 0.0982,
+      "ci_low": 0.091,
+      "ci_high": 0.1059
+    },
+    "turn4": {
+      "mean": 0.1022,
+      "ci_low": 0.0945,
+      "ci_high": 0.1102
+    },
+    "turn5": {
+      "mean": 0.1025,
+      "ci_low": 0.0945,
+      "ci_high": 0.1109
+    }
+  },
+  "wilcoxon": {
+    "trained_vs_heuristic": {
+      "turn0": {
+        "p_value": 1.0,
+        "note": "all equal"
+      },
+      "turn1": {
+        "statistic": 0.5,
+        "p_value": 0.0
+      },
+      "turn2": {
+        "statistic": 0.0,
+        "p_value": 0.0
+      },
+      "turn3": {
+        "statistic": 72.5,
+        "p_value": 0.0
+      },
+      "turn4": {
+        "statistic": 32.0,
+        "p_value": 0.0
+      },
+      "turn5": {
+        "statistic": 49.5,
+        "p_value": 0.0
+      }
+    },
+    "trained_vs_ig": {
+      "turn0": {
+        "p_value": 1.0,
+        "note": "all equal"
+      },
+      "turn1": {
+        "statistic": 280.5,
+        "p_value": 0.361
+      },
+      "turn2": {
+        "statistic": 295.0,
+        "p_value": 0.5357
+      },
+      "turn3": {
+        "statistic": 295.0,
+        "p_value": 0.5463
+      },
+      "turn4": {
+        "statistic": 255.0,
+        "p_value": 0.2164
+      },
+      "turn5": {
+        "statistic": 323.5,
+        "p_value": 0.8805
+      }
+    },
+    "ig_vs_heuristic": {
+      "turn0": {
+        "p_value": 1.0,
+        "note": "all equal"
+      },
+      "turn1": {
+        "statistic": 0.5,
+        "p_value": 0.0
+      },
+      "turn2": {
+        "statistic": 0.0,
+        "p_value": 0.0
+      },
+      "turn3": {
+        "statistic": 103.0,
+        "p_value": 0.0003
+      },
+      "turn4": {
+        "statistic": 89.5,
+        "p_value": 0.0001
+      },
+      "turn5": {
+        "statistic": 72.0,
+        "p_value": 0.0
+      }
+    }
+  }
+}

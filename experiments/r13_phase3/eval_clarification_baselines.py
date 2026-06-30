@@ -56,10 +56,10 @@ from build_training_data_vec import (  # noqa: E402
     persona_satisfy_vector,
 )
 
-POLICIES_PATH = REPO / "data/processed/policies.json"
-PERSONAS_PATH = REPO / "docs/papers/ai4good/data/personas_v2.json"
-GT_PATH = REPO / "docs/papers/ai4good/data/ground_truth_v3.json"
-LABELS_PATH = REPO / "experiments/r13_phase1/llm_labeling_full/labels.json"
+POLICIES_PATH = REPO / "data/policies.json"
+PERSONAS_PATH = REPO / "experiments/r13_phase3/personas_v2.json"
+GT_PATH = REPO / "experiments/r13_phase3/ground_truth_v3.json"
+LABELS_PATH = REPO / "experiments/r13_phase3/labels.json"
 EMB_CACHE = REPO / "experiments/r13_phase3/policy_emb.npy"
 EMB_IDS = REPO / "experiments/r13_phase3/policy_ids.json"
 TRAIN_PATH = REPO / "experiments/r13_phase3/training_data.json"

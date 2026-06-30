@@ -109,6 +109,28 @@ LLM judges / models used: OpenAI `gpt-5.4-nano` (primary GT-2 judge), Google `ge
 
 ---
 
+## §5 conversational architecture — reproduction
+
+The conversational-loop evaluation (paper §5) is bundled under
+`experiments/r13_phase3/`. **Note on data versions:** §5 was run on an earlier
+snapshot (`personas_v2.json` + `ground_truth_v3.json` + `labels.json`), which is
+distinct from the v3/v4 benchmark release backing §3–§4. All of these inputs —
+plus the trained selector (`selector_model.pkl`), the policy-embedding cache
+(`policy_emb.npy`), and `training_data.json` — are included for full reproduction.
+
+```bash
+# Heuristic / IG-dynamic / Trained-ML / Oracle (the §5 turn-by-turn table)
+python experiments/r13_phase3/eval_with_ig_baseline.py
+# epsilon-greedy(IG) and Thompson(IG) clarification baselines
+python experiments/r13_phase3/eval_clarification_baselines.py
+# Leave-one-persona-out robustness (144-persona CV)
+python experiments/r13_phase3/eval_lopo.py
+```
+
+Requires `sentence-transformers` (ko-SRoBERTa) and `scikit-learn`.
+
+---
+
 ## Compiling the paper
 
 ```bash

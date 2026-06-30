@@ -356,7 +356,7 @@ shared vocabulary across both sides of the cell-level table.
 \textbf{Sample-size design.} We chose $n{=}\npersona{}$
 ($5$ groups $\times$ $36$) to keep $\geq{}30$ per group for
 stratified bootstrap CIs while keeping the LLM tagging budget
-feasible; the L5 limitation discusses scale-up.
+feasible; the L2 limitation discusses scale-up.
 
 \subsection{A6: Persona-Orthogonal Query Pool}
 \label{sec:bench:a6}
@@ -491,7 +491,7 @@ two-LLM-full-pass plus human-on-disagreement protocol. The human
 adjudicators have welfare-policy backgrounds (graduate-student
 researchers and domain practitioners), treated as a strong
 reliability tier above pure LLM labels but below a
-credentialed-expert audit (\S\ref{sec:limit}, L6).
+credentialed-expert audit (\S\ref{sec:limit}, L3).
 
 \textbf{A3 (policy tags).} Both \texttt{gpt-5.4} and
 \texttt{gpt-5.5} independently emitted the full
@@ -895,7 +895,7 @@ selector instead requires a single \texttt{predict\_proba} call
 (Table~\ref{tab:conv}), ML wins on user-facing latency, the
 operational constraint of any deployed dialogue system. At turn~5
 both reach roughly $93\%$ of the oracle ceiling
-($0.0953/0.0950$ vs.\ $0.1025$).
+(Trained ML $0.0953$ and IG dynamic $0.0950$ vs.\ oracle $0.1025$).
 
 \paragraph{Narrowing the access gap.}
 Trained ML at turn~5 ($0.0953$) is roughly an order of magnitude
@@ -912,38 +912,43 @@ significant).
 \section{Limitations}
 \label{sec:limit}
 
-L1--L6 bound the \emph{benchmark}; L7--L12 bound the
-\emph{architectures}. \textbf{(L1)} Eligibility conditions outside
-the \ndim{}-binary $+$ 3-numeric schema are absent by construction.
-\textbf{(L2)} April~2026 snapshot; policy drift and seasonal
-programs are not measured. \textbf{(L3)} Sub-regional preferences
-in PDF/HWP attachments are partially recovered by the GT-2 free-text
-channel but absent from GT-1. \textbf{(L4)} Sub-municipal regions
-(\texttt{dong}, \texttt{eup}, \texttt{myeon}) are not represented.
-\textbf{(L5)} \npersona{} personas cover five reference groups and
-18 compound axes; some intersectional cells (e.g.\ rural
-single-parent foreign-born) have single-digit counts. The generator
-is shipped seed-pinned for community-extensible expansion targeting
-$1{,}000{+}$ personas. \textbf{(L6)} Reviewers behind every
-disagreement-adjudication are graduate students and domain
-practitioners, not licensed social workers; their output is a strong
-tier above pure LLM labels but below a formal expert audit.
+L1--L3 bound the \emph{benchmark}; L4--L6 bound the
+\emph{architectures}.
 
-\textbf{(L7)} GT-2 labels are produced by LLM-as-judge at
-temperature~0; cross-LLM agreement is $\kappa_w{=}0.69$, and residual
-judge bias correlated across the two vendors cannot be fully excluded
-by cross-vendor agreement alone. \textbf{(L8)} The query pool assumes the
-user is the prospective beneficiary; family-proxy search is out of
-scope. \textbf{(L9)} Two query phrasings per sub-topic; paraphrase
-robustness and spoken disfluencies are absorbed upstream by the
-conversational architecture, not stress-tested at the pool level.
-\textbf{(L10)} The 80/20 conversational split is in-distribution;
-the $1{,}000{+}$-persona L5 expansion is the planned OOD route.
-\textbf{(L11)} STT error and upstream NL-stage mismatch are not
-quantified here; a controlled user study with eligibility-recovery
-scores is in progress. \textbf{(L12)} Calibrated for the Korean
-Bokjiro taxonomy; cross-jurisdiction transfer requires a
-sub-topic discovery pass.
+\textbf{(L1)~Coverage.} Eligibility conditions outside the
+\ndim{}-binary $+$ 3-numeric schema are absent by construction;
+sub-regional preferences in PDF/HWP attachments are only partially
+recovered through the GT-2 free-text channel (and absent from GT-1);
+sub-municipal regions (\texttt{dong}, \texttt{eup}, \texttt{myeon})
+are not represented; and the April~2026 snapshot does not capture
+policy drift or seasonal programs.
+\textbf{(L2)~Persona scale and generalization.} The \npersona{}
+personas span five reference groups and 18 compound axes, but some
+intersectional cells (e.g.\ rural single-parent foreign-born) have
+single-digit counts, and the 80/20 conversational split is
+in-distribution; the seed-pinned generator is shipped for
+community-extensible expansion toward $1{,}000{+}$ personas, the
+planned OOD route.
+\textbf{(L3)~Label provenance.} GT-2 labels are produced by
+LLM-as-judge at temperature~0 (cross-LLM $\kappa_w{=}0.69$), and
+residual bias correlated across the two vendors cannot be fully
+excluded by cross-vendor agreement alone; the disagreement
+adjudicators are graduate-student researchers and domain
+practitioners---a strong tier above pure LLM labels but below a
+licensed-social-worker audit.
+
+\textbf{(L4)~Query realism.} The query pool assumes the user is the
+prospective beneficiary (family-proxy search is out of scope) and uses
+two phrasings per sub-topic; paraphrase robustness and spoken
+disfluencies are absorbed upstream by the conversational loop rather
+than stress-tested at the pool level.
+\textbf{(L5)~Upstream stages.} STT error and the upstream NL stages
+(S1--S3) are evaluated under oracle simulation, not quantified
+end-to-end; a controlled user study with eligibility-recovery scores
+is in progress.
+\textbf{(L6)~Cross-jurisdiction transfer.} The benchmark is
+calibrated for the Korean Bokjiro taxonomy; transfer to other
+jurisdictions requires a sub-topic discovery pass.
 
 % =====================================================================
 \section{Conclusion and Social Impact}

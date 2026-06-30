@@ -21,6 +21,7 @@
 \definecolor{fillRed}{HTML}{F7DBCC}
 
 \begin{document}
+\newcommand{\stg}[1]{{\bfseries\fontsize{9}{11}\selectfont\color{black}#1}}
 \begin{tikzpicture}[
   font=\sffamily,
   >={Stealth[length=2.4mm,width=1.8mm]},
@@ -30,12 +31,14 @@
     draw=#1, line width=0.7pt,
     fill=#2,
     align=center,
-    text width=2.75cm, minimum height=1.75cm,
-    inner sep=4pt,
+    text width=3.4cm, minimum height=1.35cm,
+    inner sep=5pt,
+    font=\sffamily\fontsize{7.5}{9.0}\selectfont, text=black!75,
   },
   % Match Fig 1/2 typography: bold black titles (color cue is the box border).
   stitle/.style={font=\sffamily\bfseries\fontsize{9.0}{11}\selectfont},
-  sbody/.style={font=\sffamily\fontsize{7.5}{9.0}\selectfont, text=black!75},
+  sbody/.style={font=\sffamily\fontsize{7.5}{9.0}\selectfont, text=black!75,
+    align=center},
   loopArr/.style={->, draw=black!55, line width=0.7pt},
 ]
 
@@ -49,33 +52,17 @@
 \coordinate (C4) at ({\R*cos(-126)},{\R*sin(-126)-0.20});% S4 lower-left
 \coordinate (C5) at ({\R*cos(162)}, {\R*sin(162)});      % S5 upper-left
 
-% --- 5 stage boxes, English-only bodies ---
-\node[stagebox={cbBlue}{fillBlue}]   (S1) at (C1) {};
-\node[stagebox={cbOrange}{fillOrange}](S2) at (C2) {};
-\node[stagebox={cbGreen}{fillGreen}] (S3) at (C3) {};
-\node[stagebox={cbPurple}{fillPurple}](S4) at (C4) {};
-\node[stagebox={cbRed}{fillRed}]     (S5) at (C5) {};
-
-% Titles in BLACK bold (box border supplies the color cue, matching Fig 1/2).
-\node[stitle, anchor=north] at ($(S1.north)+(0,-0.18)$) {S1\ \ NL Input};
-\node[sbody, anchor=north, text width=2.6cm] at ($(S1.north)+(0,-0.66)$)
-  {``I struggle with my\\electricity bill''};
-
-\node[stitle, anchor=north] at ($(S2.north)+(0,-0.18)$) {S2\ \ NL $\to$ Tag};
-\node[sbody, anchor=north, text width=2.6cm] at ($(S2.north)+(0,-0.66)$)
-  {``60s'' $\to$ age 60--69\\``elderly'' $\to$ senior};
-
-\node[stitle, anchor=north] at ($(S3.north)+(0,-0.18)$) {S3\ \ Query Rewrite};
-\node[sbody, anchor=north, text width=2.6cm] at ($(S3.north)+(0,-0.66)$)
-  {[seniors 60$+$]\\$[$heating subsidy$]$};
-
-\node[stitle, anchor=north] at ($(S4.north)+(0,-0.18)$) {S4\ \ Recommendation};
-\node[sbody, anchor=north, text width=2.6cm] at ($(S4.north)+(0,-0.66)$)
-  {9-dim persona $\to$\\GT-1 $\cap$ GT-2, top-K};
-
-\node[stitle, anchor=north] at ($(S5.north)+(0,-0.18)$) {S5\ \ Follow-up Q};
-\node[sbody, anchor=north, text width=2.6cm] at ($(S5.north)+(0,-0.66)$)
-  {``Do you\\live alone?''};
+% --- 5 stage boxes: bold black title + body, centered (horiz & vert) in box ---
+\node[stagebox={cbBlue}{fillBlue}] (S1) at (C1)
+  {\stg{S1\ \ NL Input}\\[3pt] ``I struggle with my electricity bill''};
+\node[stagebox={cbOrange}{fillOrange}] (S2) at (C2)
+  {\stg{S2\ \ NL $\to$ Tag}\\[3pt] ``60s'' $\to$ age 60--69\\``elderly'' $\to$ senior};
+\node[stagebox={cbGreen}{fillGreen}] (S3) at (C3)
+  {\stg{S3\ \ Query Rewrite}\\[3pt] $[$seniors 60$+]$\quad$[$heating subsidy$]$};
+\node[stagebox={cbPurple}{fillPurple}] (S4) at (C4)
+  {\stg{S4\ \ Recommendation}\\[3pt] 9-dim persona $\to$ GT-1 $\cap$ GT-2, top-K};
+\node[stagebox={cbRed}{fillRed}] (S5) at (C5)
+  {\stg{S5\ \ Follow-up Q}\\[3pt] ``Do you live alone?''};
 
 % Curved arrows along the pentagon (S1->S2->S3->S4->S5->S1).
 % bend right gives a clockwise gentle curve.
